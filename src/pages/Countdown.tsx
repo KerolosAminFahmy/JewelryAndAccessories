@@ -31,8 +31,11 @@ function useCountdownTimer(targetDate: Date) {
 }
 
 const Countdown = () => {
-  // Website launch countdown (2 weeks from now)
-  const websiteLaunchDate = new Date(Date.now() + 1000 * 60 * 60 * 24 * 14); // 14 days
+  // Website launch countdown (2 weeks from now) - use useMemo to prevent recreation on every render
+  const websiteLaunchDate = React.useMemo(() => {
+    return new Date(Date.now() + 1000 * 60 * 60 * 24 * 14); // 14 days
+  }, []);
+  
   const countdownTimer = useCountdownTimer(websiteLaunchDate);
 
   return (
