@@ -1,7 +1,6 @@
-import { useTranslation } from 'react-i18next';
 import { useTheme } from '../theme/ThemeProvider';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 import slideImage from '../assets/slideshowV1-bg1.jpg';
 import sildeImage1 from '../assets/slideshowV1-bg2.webp';
 // @ts-ignore
@@ -36,7 +35,7 @@ const slides = [
 ];
 
 const HeroSlider = () => {
-  const { t } = useTranslation();
+    
   const { theme, direction } = useTheme();
 
   return (

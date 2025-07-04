@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
@@ -8,7 +7,6 @@ import {
   faGem,
   faCrown,
   faUsers,
-  faChartLine,
   faGlobe
 } from '@fortawesome/free-solid-svg-icons';
 import SectionHeader from '../components/SectionHeader';

@@ -6,10 +6,8 @@ import {
   faShoppingCart, 
   faPlus, 
   faMinus, 
-  faTimes,
   faArrowLeft,
   faCreditCard,
-  faTruck,
   faTrash
 } from '@fortawesome/free-solid-svg-icons';
 import '../index.css';

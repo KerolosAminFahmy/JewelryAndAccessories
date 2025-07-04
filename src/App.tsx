@@ -7,11 +7,11 @@ import Shop from './pages/shop';
 import ProductDetail from './pages/ProductDetail';
 
 function App() {
-  const { i18n } = useTranslation();
+  //const { i18n } = useTranslation();
 
-  const changeLanguage = () => {
+  /*const changeLanguage = () => {
     i18n.changeLanguage(i18n.language === 'en' ? 'ar' : 'en');
-  };
+  };*/
 
   return (
     <Router>

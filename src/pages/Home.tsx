@@ -4,7 +4,7 @@
 // import { useTheme } from '../theme/ThemeProvider';
 import HeroSlider from '../components/HeroSlider';
 import { ProductCard, SectionHeader, ReviewCard } from '../components';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import {  Pagination, Autoplay } from 'swiper/modules';
 
 import collection1 from '../assets/collectionV1-img1.webp'
 import collection2 from '../assets/collectionV1-img2.webp'
