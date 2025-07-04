@@ -1,10 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { Layout } from './components';
-import { Home, About, Contact, NotFound, Login, Cart, Countdown } from './pages';
+import {  Countdown } from './pages';
+//import { Home, About, Contact, NotFound, Login, Cart, Countdown } from './pages';
 import './App.css';
-import Shop from './pages/shop';
-import ProductDetail from './pages/ProductDetail';
+// import Shop from './pages/shop';
+// import ProductDetail from './pages/ProductDetail';
 
 function App() {
   //const { i18n } = useTranslation();

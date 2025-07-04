@@ -46,8 +46,8 @@ const ProductDetail = () => {
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [selectedSize, setSelectedSize] = useState('M');
   const [quantity, setQuantity] = useState(1);
-  const [userRating, setUserRating] = useState(0);
-  const [hoveredStar, setHoveredStar] = useState(0);
+  // const [userRating, setUserRating] = useState(0);
+  // const [hoveredStar, setHoveredStar] = useState(0);
   const [magnify, setMagnify] = useState(false);
   const [magnifyPos, setMagnifyPos] = useState({ x: 0, y: 0 });
   const [showSharePopup, setShowSharePopup] = useState(false);
