@@ -20,7 +20,7 @@ const Navigation = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   // Mock cart count - in a real app this would come from a cart context/state
-  const [cartCount, setCartCount] = useState(3);
+  const [cartCount] = useState(3);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

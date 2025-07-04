@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+
 import { Layout } from './components';
 import { Home, About, Contact, NotFound, Login, Cart } from './pages';
 import './App.css';
