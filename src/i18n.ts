@@ -27,6 +27,17 @@ const resources = {
         next: 'Next slide',
         goto: 'Go to slide {{num}}',
       },
+      footer: {
+        description: "Discover timeless elegance and modern design with Merna Jewelry. Crafted for every occasion.",
+        quickLinks: "Quick Links",
+        shop: "Shop",
+        aboutUs: "About Us",
+        contactUs: "Contact Us",
+        cart: "Cart",
+        followUs: "Follow Us",
+        contact: "Contact",
+        rights: "All rights reserved."
+      },
     }
   },
   ar: {
@@ -52,6 +63,17 @@ const resources = {
         prev: 'الشريحة السابقة',
         next: 'الشريحة التالية',
         goto: 'اذهب إلى الشريحة {{num}}',
+      },
+      footer: {
+        description: "اكتشف الأناقة الخالدة والتصميم العصري مع مجوهرات ميرنا. صُنعت لكل مناسبة.",
+        quickLinks: "روابط مهمة",
+        shop: "المتجر",
+        aboutUs: "معلومات عنا",
+        contactUs: "اتصل بنا",
+        cart: "عربة التسوق",
+        followUs: "تابعنا",
+        contact: "تواصل",
+        rights: "جميع الحقوق محفوظة."
       },
     }
   }

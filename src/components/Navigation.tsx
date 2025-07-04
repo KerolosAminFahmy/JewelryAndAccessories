@@ -66,7 +66,7 @@ const Navigation = () => {
             {t('nav.home', 'Home')}
           </Link>
            <Link 
-            to="/" 
+            to="/shop" 
             className={`nav-link ${isActive('/shop') ? 'active' : ''}`}
             onClick={closeMenu}
           >

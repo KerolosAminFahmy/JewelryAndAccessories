@@ -1,16 +1,29 @@
-/* Theme variables */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* Elegant Gold Theme Variables */
 :root {
-  --color-bg: #ffffff;
-  --color-text: #213547;
-  --color-primary: #646cff;
-  --color-card-bg: #f9f9f9;
+  --color-bg: #fff;
+  --color-text: #181818;
+  --color-primary: #bfa46d; /* Gold */
+  --color-primary-dark: #a88938;
+  --color-accent: #bfa46d;
+  --color-card-bg: #f9f7f3;
+  --color-border: #e5c97b;
+  --color-link: #bfa46d;
+  --color-link-hover: #a88938;
+  --color-shadow: 0 4px 24px rgba(191, 164, 109, 0.10);
+  --font-title: 'Playfair Display', serif;
+  --font-body: 'Lato', sans-serif;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
+  --bs-primary: var(--color-primary);
+  --bs-secondary: var(--color-link-hover);
+  --bs-body-bg: var(--color-link);
+  --bs-body-color: var(--color-text);
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--color-text);
+  background-color: var(--color-bg);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,10 +32,16 @@
 }
 
 [data-theme='dark'] {
-  --color-bg: #242424;
-  --color-text: #ffffff;
-  --color-primary: #646cff;
-  --color-card-bg: #1a1a1a;
+  --color-bg: #181818;
+  --color-text: #fff;
+  --color-primary: #bfa46d;
+  --color-primary-dark: #e5c97b;
+  --color-accent: #bfa46d;
+  --color-card-bg: #23201b;
+  --color-border: #bfa46d;
+  --color-link: #bfa46d;
+  --color-link-hover: #e5c97b;
+  --color-shadow: 0 4px 24px rgba(191, 164, 109, 0.18);
 }
 
 /* RTL Base Styles */
@@ -72,35 +91,102 @@ body {
   min-height: 100vh;
   background-color: var(--color-bg);
   color: var(--color-text);
-}
-/***/
-section{
-  width: 100%;
-}
-/**/
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-family: var(--font-body);
+  transition: background 0.5s, color 0.5s;
 }
 
-button {
+section {
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+h1, h2, h3, h4, h5, h6, .title {
+  font-family: var(--font-title);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-primary);
+  transition: color 0.3s;
+}
+
+a, .footer-link {
+  color: var(--color-link);
+  transition: color 0.3s, text-decoration 0.3s;
+}
+a:hover, .footer-link:hover, .footer-link:focus {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+}
+
+button, .btn {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid var(--color-primary);
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
-  color: white;
+  background-color: var(--color-primary);
+  color: #fff;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+  box-shadow: var(--color-shadow);
 }
-button:hover {
-  border-color: #646cff;
+button:hover, .btn:hover {
+  background-color: var(--color-primary-dark);
+  color: #fff;
+  border-color: var(--color-primary-dark);
+  box-shadow: 0 4px 24px rgba(191, 164, 109, 0.18);
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+button:focus, .btn:focus, button:focus-visible, .btn:focus-visible {
+  outline: 3px auto var(--color-primary-dark);
+}
+
+.card {
+  background: var(--color-card-bg);
+  padding: 1em;
+  border-radius: 12px;
+  box-shadow: var(--color-shadow);
+  border: 1px solid var(--color-border);
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 32px rgba(191, 164, 109, 0.18);
+  border-color: var(--color-primary);
+}
+
+.description, p, li, span, a {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--color-text);
+  transition: color 0.3s;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 8px;
+}
+::-webkit-scrollbar {
+  background: var(--color-card-bg);
+  width: 8px;
+}
+
+/* Elegant underline animation for links */
+a, .footer-link {
+  position: relative;
+}
+a::after, .footer-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: width 0.3s;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+}
+a:hover::after, .footer-link:hover::after {
+  width: 100%;
 }
 
 @media (prefers-color-scheme: light) {
@@ -114,10 +200,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
-
-.card {
-  background: var(--color-card-bg);
-  padding: 1em;
-  border-radius: 8px;
 }

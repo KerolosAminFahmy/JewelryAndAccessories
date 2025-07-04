@@ -3,13 +3,12 @@
   text-align: left;
 }
 .section-header.light{
-  --title-color:#222;
-  --description-color:#666;
+  --title-color: var(--color-primary, #bfa46d);
+  --description-color: #666;
 }
 .section-header.dark{
-  --text-color:#ffffff;
-  --description-color:#ffffff;
-
+  --text-color: #ffffff;
+  --description-color: #ffffff;
 }
 .section-title {
   display: flex;
@@ -19,7 +18,8 @@
   font-weight: 700;
   position: relative;
   margin-bottom: 0.5rem;
-  color: var(--title-color);
+  color: var(--title-color, #bfa46d);
+  transition: color 0.3s;
 }
 
 .section-title::after {
@@ -27,9 +27,10 @@
   display: block;
   width: 30%;
   height: 4px;
-  background: #ff4757;
+  background: var(--color-primary, #bfa46d);
   border-radius: 2px;
   margin-top: 4px;
+  transition: background 0.3s;
 }
 
 .section-description {

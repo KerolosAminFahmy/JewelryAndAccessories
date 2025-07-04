@@ -10,8 +10,8 @@ export interface SectionHeaderProps {
 const SectionHeader: React.FC<SectionHeaderProps> = ({ title, description }) =>{
   const { theme } = useTheme();
   return (<div className={`section-header ${theme}`}>
-    <h2 className="section-title">{title}</h2>
-    {description && <p className="section-description">{description}</p>}
+    <h2 className="title section-title">{title}</h2>
+    {description && <p className="description section-description">{description}</p>}
   </div>);
 } 
 

@@ -6,8 +6,13 @@ import {
   faShoppingCart, 
   faPlus, 
   faMinus, 
-  faTimes 
+  faTimes,
+  faArrowLeft,
+  faCreditCard,
+  faTruck,
+  faTrash
 } from '@fortawesome/free-solid-svg-icons';
+import '../index.css';
 
 interface CartItem {
   id: number;
@@ -22,17 +27,24 @@ const Cart = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([
     {
       id: 1,
-      name: 'Product 1',
-      price: 29.99,
+      name: 'Luxury Leather Handbag',
+      price: 299.99,
       quantity: 2,
-      image: 'https://via.placeholder.com/80x80?text=Product+1'
+      image: '/src/assets/collectionV1-img1.webp'
     },
     {
       id: 2,
-      name: 'Product 2',
-      price: 19.99,
+      name: 'Premium Silk Scarf',
+      price: 89.99,
       quantity: 1,
-      image: 'https://via.placeholder.com/80x80?text=Product+2'
+      image: '/src/assets/collectionV1-img2.webp'
+    },
+    {
+      id: 3,
+      name: 'Designer Sunglasses',
+      price: 199.99,
+      quantity: 1,
+      image: '/src/assets/collectionV1-img3.webp'
     }
   ]);
 
@@ -62,95 +74,469 @@ const Cart = () => {
 
   if (cartItems.length === 0) {
     return (
-      <div className="cart-page">
-        <div className="cart-empty">
-          <h1>{t('cart.title', 'Shopping Cart')}</h1>
-          <div className="empty-cart">
-            <div className="empty-cart-icon">
+      <div style={{ background: 'var(--color-bg)', minHeight: '100vh' }}>
+        {/* Hero Section */}
+        <section style={{
+          position: 'relative',
+          minHeight: '300px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/src/assets/slideshowV1-bg1.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          marginBottom: 60
+        }}>
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'linear-gradient(135deg, rgba(191, 164, 109, 0.8) 0%, rgba(168, 137, 56, 0.6) 100%)',
+            zIndex: 1
+          }} />
+          
+          <div style={{
+            position: 'relative',
+            zIndex: 2,
+            textAlign: 'center',
+            maxWidth: '600px',
+            padding: '0 24px'
+          }}>
+            <h1 style={{
+              fontSize: '3.5rem',
+              fontWeight: 700,
+              color: '#fff',
+              marginBottom: '16px',
+              fontFamily: 'var(--font-title)',
+              textShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
+              letterSpacing: '0.02em'
+            }}>
+              {t('cart.title', 'Shopping Cart')}
+            </h1>
+            <p style={{
+              fontSize: '1.2rem',
+              color: '#fff',
+              fontFamily: 'var(--font-body)',
+              lineHeight: 1.6,
+              textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
+              opacity: 0.95
+            }}>
+              {t('cart.heroDescription', 'Your luxury shopping experience awaits')}
+            </p>
+          </div>
+        </section>
+
+        {/* Empty Cart Section */}
+        <section style={{ 
+          padding: '60px 0', 
+          maxWidth: '500px', 
+          margin: '0 auto',
+          paddingLeft: '24px',
+          paddingRight: '24px'
+        }}>
+          <div style={{
+            background: 'var(--color-card-bg)',
+            borderRadius: 20,
+            padding: 48,
+            boxShadow: 'var(--color-shadow)',
+            border: '1px solid var(--color-border)',
+            textAlign: 'center'
+          }}>
+            <div style={{
+              fontSize: '4rem',
+              color: 'var(--color-primary)',
+              marginBottom: '24px'
+            }}>
               <FontAwesomeIcon icon={faShoppingCart} />
             </div>
-            <h2>{t('cart.empty', 'Your cart is empty')}</h2>
-            <p>{t('cart.emptyMessage', 'Add some products to your cart to get started!')}</p>
-            <Link to="/" className="continue-shopping">
+            
+            <h2 style={{
+              fontSize: '2rem',
+              fontWeight: 700,
+              color: 'var(--color-primary)',
+              marginBottom: '16px',
+              fontFamily: 'var(--font-title)'
+            }}>
+              {t('cart.empty', 'Your cart is empty')}
+            </h2>
+            
+            <p style={{
+              fontSize: '1.1rem',
+              color: 'var(--color-text)',
+              marginBottom: '32px',
+              fontFamily: 'var(--font-body)',
+              lineHeight: 1.6
+            }}>
+              {t('cart.emptyMessage', 'Add some luxury products to your cart to get started!')}
+            </p>
+
+            <Link 
+              to="/shop" 
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '12px',
+                background: 'var(--color-primary)',
+                color: '#fff',
+                padding: '16px 32px',
+                borderRadius: 12,
+                textDecoration: 'none',
+                fontSize: '1.1rem',
+                fontWeight: 600,
+                fontFamily: 'var(--font-body)',
+                transition: 'all 0.3s ease',
+                border: '2px solid var(--color-primary)'
+              }}
+            >
+              <FontAwesomeIcon icon={faArrowLeft} />
               {t('cart.continueShopping', 'Continue Shopping')}
             </Link>
           </div>
-        </div>
+        </section>
       </div>
     );
   }
 
   return (
-    <div className="cart-page">
-      <h1>{t('cart.title', 'Shopping Cart')}</h1>
-      
-      <div className="cart-container">
-        <div className="cart-items">
-          {cartItems.map(item => (
-            <div key={item.id} className="cart-item">
-              <div className="item-image">
-                <img src={item.image} alt={item.name} />
-              </div>
-              
-              <div className="item-details">
-                <h3>{item.name}</h3>
-                <p className="item-price">${item.price.toFixed(2)}</p>
-              </div>
-              
-              <div className="item-quantity">
-                <button 
-                  onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                  className="quantity-btn"
-                >
-                  <FontAwesomeIcon icon={faMinus} />
-                </button>
-                <span className="quantity">{item.quantity}</span>
-                <button 
-                  onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                  className="quantity-btn"
-                >
-                  <FontAwesomeIcon icon={faPlus} />
-                </button>
-              </div>
-              
-              <div className="item-total">
-                <p>${(item.price * item.quantity).toFixed(2)}</p>
-              </div>
-              
-              <button 
-                onClick={() => removeItem(item.id)}
-                className="remove-btn"
-              >
-                <FontAwesomeIcon icon={faTimes} />
-              </button>
-            </div>
-          ))}
-        </div>
+    <div style={{ background: 'var(--color-bg)', minHeight: '100vh' }}>
+      {/* Hero Section */}
+      <section style={{
+        position: 'relative',
+        minHeight: '300px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/src/assets/slideshowV1-bg2.webp')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        marginBottom: 60
+      }}>
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'linear-gradient(135deg, rgba(191, 164, 109, 0.8) 0%, rgba(168, 137, 56, 0.6) 100%)',
+          zIndex: 1
+        }} />
         
-        <div className="cart-summary">
-          <h2>{t('cart.summary', 'Order Summary')}</h2>
-          <div className="summary-item">
-            <span>{t('cart.items', 'Items')} ({getTotalItems()}):</span>
-            <span>${getTotalPrice().toFixed(2)}</span>
-          </div>
-          <div className="summary-item">
-            <span>{t('cart.shipping', 'Shipping')}:</span>
-            <span>{t('cart.free', 'Free')}</span>
-          </div>
-          <div className="summary-total">
-            <span>{t('cart.total', 'Total')}:</span>
-            <span>${getTotalPrice().toFixed(2)}</span>
-          </div>
-          
-          <button className="checkout-btn">
-            {t('cart.checkout', 'Proceed to Checkout')}
-          </button>
-          
-          <Link to="/" className="continue-shopping">
-            {t('cart.continueShopping', 'Continue Shopping')}
-          </Link>
+        <div style={{
+          position: 'relative',
+          zIndex: 2,
+          textAlign: 'center',
+          maxWidth: '600px',
+          padding: '0 24px'
+        }}>
+          <h1 style={{
+            fontSize: '3.5rem',
+            fontWeight: 700,
+            color: '#fff',
+            marginBottom: '16px',
+            fontFamily: 'var(--font-title)',
+            textShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
+            letterSpacing: '0.02em'
+          }}>
+            {t('cart.title', 'Shopping Cart')}
+          </h1>
+          <p style={{
+            fontSize: '1.2rem',
+            color: '#fff',
+            fontFamily: 'var(--font-body)',
+            lineHeight: 1.6,
+            textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)',
+            opacity: 0.95
+          }}>
+            {t('cart.heroDescription', 'Your luxury shopping experience awaits')}
+          </p>
         </div>
-      </div>
+      </section>
+
+      {/* Cart Content Section */}
+      <section style={{ 
+        padding: '60px 0', 
+        maxWidth: '1200px', 
+        margin: '0 auto',
+        paddingLeft: '24px',
+        paddingRight: '24px'
+      }}>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: '1fr 400px', 
+          gap: 40,
+          alignItems: 'start'
+        }}>
+          {/* Cart Items */}
+          <div style={{
+            background: 'var(--color-card-bg)',
+            borderRadius: 20,
+            padding: 32,
+            boxShadow: 'var(--color-shadow)',
+            border: '1px solid var(--color-border)'
+          }}>
+            <h2 style={{
+              fontSize: '1.8rem',
+              fontWeight: 700,
+              color: 'var(--color-primary)',
+              marginBottom: '24px',
+              fontFamily: 'var(--font-title)'
+            }}>
+              {t('cart.items', 'Cart Items')} ({getTotalItems()})
+            </h2>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              {cartItems.map(item => (
+                <div key={item.id} style={{
+                  display: 'grid',
+                  gridTemplateColumns: '100px 1fr auto auto auto',
+                  gap: '20px',
+                  alignItems: 'center',
+                  padding: '20px',
+                  background: 'var(--color-bg)',
+                  borderRadius: 12,
+                  border: '1px solid var(--color-border)'
+                }}>
+                  <div style={{
+                    width: '100px',
+                    height: '100px',
+                    borderRadius: 8,
+                    overflow: 'hidden'
+                  }}>
+                    <img 
+                      src={item.image} 
+                      alt={item.name}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover'
+                      }}
+                    />
+                  </div>
+                  
+                  <div>
+                    <h3 style={{
+                      fontSize: '1.2rem',
+                      fontWeight: 600,
+                      color: 'var(--color-primary)',
+                      marginBottom: '8px',
+                      fontFamily: 'var(--font-title)'
+                    }}>
+                      {item.name}
+                    </h3>
+                    <p style={{
+                      fontSize: '1.1rem',
+                      color: 'var(--color-text)',
+                      fontWeight: 600,
+                      fontFamily: 'var(--font-body)'
+                    }}>
+                      ${item.price.toFixed(2)}
+                    </p>
+                  </div>
+                  
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '12px'
+                  }}>
+                    <button 
+                      onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                      style={{
+                        width: '40px',
+                        height: '40px',
+                        borderRadius: '50%',
+                        border: '2px solid var(--color-primary)',
+                        background: 'var(--color-primary)',
+                        color: '#fff',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        transition: 'all 0.3s ease'
+                      }}
+                    >
+                      <FontAwesomeIcon icon={faMinus} />
+                    </button>
+                    <span style={{
+                      fontSize: '1.1rem',
+                      fontWeight: 600,
+                      color: 'var(--color-text)',
+                      minWidth: '30px',
+                      textAlign: 'center',
+                      fontFamily: 'var(--font-body)'
+                    }}>
+                      {item.quantity}
+                    </span>
+                    <button 
+                      onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                      style={{
+                        width: '40px',
+                        height: '40px',
+                        borderRadius: '50%',
+                        border: '2px solid var(--color-primary)',
+                        background: 'var(--color-primary)',
+                        color: '#fff',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        transition: 'all 0.3s ease'
+                      }}
+                    >
+                      <FontAwesomeIcon icon={faPlus} />
+                    </button>
+                  </div>
+                  
+                  <div>
+                    <p style={{
+                      fontSize: '1.2rem',
+                      fontWeight: 700,
+                      color: 'var(--color-primary)',
+                      fontFamily: 'var(--font-body)'
+                    }}>
+                      ${(item.price * item.quantity).toFixed(2)}
+                    </p>
+                  </div>
+                  
+                  <button 
+                    onClick={() => removeItem(item.id)}
+                    style={{
+                      width: '40px',
+                      height: '40px',
+                      borderRadius: '50%',
+                      border: '2px solid #ef4444',
+                      background: '#ef4444',
+                      color: '#fff',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      transition: 'all 0.3s ease'
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faTrash} />
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Cart Summary */}
+          <div style={{
+            background: 'var(--color-card-bg)',
+            borderRadius: 20,
+            padding: 32,
+            boxShadow: 'var(--color-shadow)',
+            border: '1px solid var(--color-border)',
+            position: 'sticky',
+            top: '20px'
+          }}>
+            <h2 style={{
+              fontSize: '1.8rem',
+              fontWeight: 700,
+              color: 'var(--color-primary)',
+              marginBottom: '24px',
+              fontFamily: 'var(--font-title)'
+            }}>
+              {t('cart.summary', 'Order Summary')}
+            </h2>
+            
+            <div style={{ marginBottom: '24px' }}>
+              <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                marginBottom: '12px',
+                fontSize: '1rem',
+                fontFamily: 'var(--font-body)'
+              }}>
+                <span style={{ color: 'var(--color-text)' }}>
+                  {t('cart.items', 'Items')} ({getTotalItems()}):
+                </span>
+                <span style={{ fontWeight: 600, color: 'var(--color-text)' }}>
+                  ${getTotalPrice().toFixed(2)}
+                </span>
+              </div>
+              <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                marginBottom: '12px',
+                fontSize: '1rem',
+                fontFamily: 'var(--font-body)'
+              }}>
+                <span style={{ color: 'var(--color-text)' }}>
+                  {t('cart.shipping', 'Shipping')}:
+                </span>
+                <span style={{ fontWeight: 600, color: '#22c55e' }}>
+                  {t('cart.free', 'Free')}
+                </span>
+              </div>
+              <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                padding: '16px 0',
+                borderTop: '2px solid var(--color-border)',
+                fontSize: '1.2rem',
+                fontWeight: 700,
+                fontFamily: 'var(--font-body)'
+              }}>
+                <span style={{ color: 'var(--color-primary)' }}>
+                  {t('cart.total', 'Total')}:
+                </span>
+                <span style={{ color: 'var(--color-primary)' }}>
+                  ${getTotalPrice().toFixed(2)}
+                </span>
+              </div>
+            </div>
+            
+            <button style={{
+              width: '100%',
+              padding: '16px 32px',
+              borderRadius: 12,
+              border: '2px solid var(--color-primary)',
+              background: 'var(--color-primary)',
+              color: '#fff',
+              fontSize: '1.1rem',
+              fontWeight: 600,
+              cursor: 'pointer',
+              transition: 'all 0.3s ease',
+              fontFamily: 'var(--font-body)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              marginBottom: '16px'
+            }}>
+              <FontAwesomeIcon icon={faCreditCard} />
+              {t('cart.checkout', 'Proceed to Checkout')}
+            </button>
+            
+            <Link 
+              to="/shop" 
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                color: 'var(--color-primary)',
+                textDecoration: 'none',
+                fontSize: '1rem',
+                fontWeight: 600,
+                fontFamily: 'var(--font-body)',
+                transition: 'all 0.3s ease',
+                justifyContent: 'center',
+                width: '100%',
+                padding: '12px'
+              }}
+            >
+              <FontAwesomeIcon icon={faArrowLeft} />
+              {t('cart.continueShopping', 'Continue Shopping')}
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

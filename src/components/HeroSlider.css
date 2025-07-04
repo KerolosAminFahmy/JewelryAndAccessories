@@ -37,18 +37,19 @@
 
 .slide-text-container {
   max-width: 500px;
-  color: #fff;
+  color: var(--color-text, #fff);
   text-shadow: 0 2px 16px rgba(0,0,0,0.5);
 }
 
 .big-sale {
   font-size: 4rem;
   font-weight: 900;
-  color: #ff4757;
+  color: var(--color-primary, #bfa46d);
   margin: 0 0 1rem 0;
   text-transform: uppercase;
   letter-spacing: 2px;
   line-height: 1;
+  transition: color 0.3s;
 }
 
 .product-title {
@@ -56,6 +57,8 @@
   font-weight: 700;
   margin: 0 0 1rem 0;
   line-height: 1.2;
+  color: var(--color-text, #181818);
+  transition: color 0.3s;
 }
 
 .discount-text {
@@ -63,10 +66,12 @@
   font-weight: 500;
   margin: 0 0 2rem 0;
   opacity: 0.9;
+  color: var(--color-primary, #bfa46d);
+  transition: color 0.3s;
 }
 
 .shop-now-btn {
-  background: #ff4757;
+  background: var(--color-primary, #bfa46d);
   color: white;
   border: none;
   padding: 1rem 2.5rem;
@@ -77,12 +82,17 @@
   cursor: pointer;
   transition: all 0.3s ease;
   letter-spacing: 1px;
+  box-shadow: 0 4px 24px rgba(191, 164, 109, 0.10);
 }
 
 .shop-now-btn:hover {
-  background: #e63946;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(255, 71, 87, 0.4);
+  background: var(--color-primary-dark, #a88938);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 32px rgba(191, 164, 109, 0.18);
+}
+
+.section-title::after {
+  background: var(--color-primary, #bfa46d);
 }
 
 /* RTL Support */
@@ -102,9 +112,6 @@
   text-shadow: 0 2px 16px rgba(255,255,255,0.3);
 }
 
-.hero-slider.light .big-sale {
-  color: #ff4757;
-}
 
 /* Swiper custom styles */
 .swiper-hero {
@@ -121,15 +128,15 @@
   bottom: 2rem;
 }
 
-.swiper-hero .swiper-pagination-bullet {
-  background: rgba(255,255,255,0.7);
-  border: 2px solid #007bff;
+.swiper-pagination-bullet {
+  background: rgba(191,164,109,0.7);
+  border: 2px solid var(--color-primary, #bfa46d);
   width: 14px;
   height: 14px;
 }
 
-.swiper-hero .swiper-pagination-bullet-active {
-  background: #007bff;
+.swiper-pagination-bullet-active {
+  background: var(--color-primary, #bfa46d);
   border-color: #fff;
 }
 

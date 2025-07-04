@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { Layout } from './components';
 import { Home, About, Contact, NotFound, Login, Cart } from './pages';
 import './App.css';
+import Shop from './pages/shop';
+import ProductDetail from './pages/ProductDetail';
 
 function App() {
   const { i18n } = useTranslation();
@@ -20,6 +22,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/shop/1" element={<ProductDetail />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>

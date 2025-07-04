@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Navigation from './Navigation';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../theme/ThemeProvider';
+import { Footer } from './index';
 
 interface LayoutProps {
   children: ReactNode;
@@ -22,11 +23,7 @@ const Layout = ({ children }: LayoutProps) => {
       <main className="main-content">
         {children}
       </main>
-      <footer className={`footer ${theme} ${direction}`}>
-        <div className="footer-content">
-          <p>&copy; 2024 {t('footer.copyright', 'Merna Project')}. {t('footer.rights', 'All rights reserved.')}</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

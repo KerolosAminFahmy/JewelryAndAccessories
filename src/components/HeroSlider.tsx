@@ -11,6 +11,7 @@ import 'swiper/css/navigation';
 // @ts-ignore
 import 'swiper/css/pagination';
 import './HeroSlider.css';
+import { Button } from 'react-bootstrap';
 
 // Placeholder images (replace with your own if needed)
 const slides = [
@@ -64,10 +65,10 @@ const HeroSlider = () => {
             >
               <div className="slide-content">
                 <div className="slide-text-container">
-                  <h1 className="big-sale">{slide.bigSale}</h1>
-                  <h2 className="product-title">{slide.productTitle}</h2>
-                  <p className="discount-text">{slide.discount}</p>
-                  <button className="shop-now-btn">{slide.cta}</button>
+                  <h1 className="title big-sale">{slide.bigSale}</h1>
+                  <h2 className="title product-title">{slide.productTitle}</h2>
+                  <p className="description discount-text">{slide.discount}</p>
+                  <Button className="shop-now-btn">{slide.cta}</Button>
                 </div>
               </div>
             </div>
