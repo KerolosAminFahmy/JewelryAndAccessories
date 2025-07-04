@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { Layout } from './components';
-import { Home, About, Contact, NotFound, Login, Cart } from './pages';
+import { Home, About, Contact, NotFound, Login, Cart, Countdown } from './pages';
 import './App.css';
 import Shop from './pages/shop';
 import ProductDetail from './pages/ProductDetail';
@@ -14,17 +14,26 @@ function App() {
   };*/
 
   return (
+    // <Router>
+    //   <Layout>
+    //     <Routes>
+    //       <Route path="/" element={<Home />} />
+    //       <Route path="/about" element={<About />} />
+    //       <Route path="/contact" element={<Contact />} />
+    //       <Route path="/login" element={<Login />} />
+    //       <Route path="/cart" element={<Cart />} />
+    //       <Route path="/shop" element={<Shop />} />
+    //       <Route path="/shop/1" element={<ProductDetail />} />
+    //       <Route path="*" element={<NotFound />} />
+    //     </Routes>
+    //   </Layout>
+    // </Router>
     <Router>
       <Layout>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/shop/1" element={<ProductDetail />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Countdown />} />
+
+          <Route path="*" element={<Countdown />} />
         </Routes>
       </Layout>
     </Router>
