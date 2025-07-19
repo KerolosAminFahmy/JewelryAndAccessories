@@ -83,6 +83,8 @@
 .countdownTitle {
   font-size: 3rem;
   font-weight: 800;
+  text-align: center;
+
   color: var(--color-text);
   margin: 0 0 1rem 0;
   line-height: 1.2;

@@ -2,7 +2,24 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import { Layout } from './components';
 import {  Countdown } from './pages';
-//import { Home, About, Contact, NotFound, Login, Cart, Countdown } from './pages';
+// import { Home, About, Contact, NotFound, Login, Cart,ProductDetail,Shop } from './pages';
+// import { 
+//   DashboardLayout, 
+//   DashboardHome, 
+//   ProductManagement, 
+//   ProductRequests, 
+//   Orders, 
+//   Customers, 
+//   Analytics, 
+//   Settings,
+//   AddEditProduct
+// } from './pages/dashboard';
+// import CustomerProfileEdit from './pages/CustomerProfileEdit';
+// import CustomerOrderTrack from './pages/CustomerOrderTrack';
+// import CustomerOrderHistory from './pages/CustomerOrderHistory';
+// import CustomerPreferences from './pages/CustomerPreferences';
+// import CustomerProfileMain from './pages/CustomerProfileMain';
+// import CustomerProfileLayout from './pages/CustomerProfileLayout';
 import './App.css';
 // import Shop from './pages/shop';
 // import ProductDetail from './pages/ProductDetail';
@@ -15,29 +32,16 @@ function App() {
   };*/
 
   return (
-    // <Router>
-    //   <Layout>
-    //     <Routes>
-    //       <Route path="/" element={<Home />} />
-    //       <Route path="/about" element={<About />} />
-    //       <Route path="/contact" element={<Contact />} />
-    //       <Route path="/login" element={<Login />} />
-    //       <Route path="/cart" element={<Cart />} />
-    //       <Route path="/shop" element={<Shop />} />
-    //       <Route path="/shop/1" element={<ProductDetail />} />
-    //       <Route path="*" element={<NotFound />} />
-    //     </Routes>
-    //   </Layout>
-    // </Router>
-    <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Countdown />} />
+    
+     <Router>
+       <Layout>
+         <Routes>
+           <Route path="/" element={<Countdown />} />
 
-          <Route path="*" element={<Countdown />} />
-        </Routes>
-      </Layout>
-    </Router>
+           <Route path="*" element={<Countdown />} />
+         </Routes>
+       </Layout>
+     </Router>
   );
 }
 

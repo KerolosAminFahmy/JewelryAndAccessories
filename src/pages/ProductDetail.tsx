@@ -5,6 +5,13 @@ import related2 from '../assets/collectionV1-img2.webp';
 import related3 from '../assets/collectionV1-img3.webp';
 import main1 from '../assets/25.webp';
 import main2 from '../assets/28.webp';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Autoplay } from 'swiper/modules';
+// @ts-ignore
+import 'swiper/css';
+// @ts-ignore
+import 'swiper/css/pagination';
+import ProductCard from '../components/ProductCard';
 
 const product = {
   name: 'Modern Armchair',
@@ -15,7 +22,7 @@ const product = {
   oldPrice: 249.99,
   saleEnd: new Date(Date.now() + 1000 * 60 * 60 * 24 * 2),
   rating: 4.2,
-  related: [related1, related2, related3],
+  related: [related1, related2, related3,related1, related2, related3],
 };
 
 function useSaleTimer(saleEnd: Date | undefined) {
@@ -126,6 +133,8 @@ const ProductDetail = () => {
                 <span className={styles.salePercent}>SAVE {Math.round(100 - (product.price / product.oldPrice) * 100)}%</span>
               )}
             </div>
+            <div className={styles.elegantLine}></div>
+
             {product.saleEnd && saleTimer && (
               <div className={styles.saleTimerBox}>
                 <span className={styles.saleTimerLabel}>
@@ -163,27 +172,7 @@ const ProductDetail = () => {
           {/* Elegant Line */}
           <div className={styles.elegantLine}></div>
           
-          {/* Delivery & Return Info */}
-          <div className={styles.deliveryInfo}>
-            <div className={styles.infoItem}>
-              <svg className={styles.infoIcon} width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-              </svg>
-              <div className={styles.infoContent}>
-                <h4>Free Delivery</h4>
-                <p>Free shipping on orders over $50</p>
-              </div>
-            </div>
-            <div className={styles.infoItem}>
-              <svg className={styles.infoIcon} width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-              </svg>
-              <div className={styles.infoContent}>
-                <h4>Easy Returns</h4>
-                <p>30-day return policy</p>
-              </div>
-            </div>
-          </div>
+         
           
           <div className={styles.colors}>
             <span>Color:</span>
@@ -234,7 +223,29 @@ const ProductDetail = () => {
           </div>
           <button className={styles.orderNow}>Order Now</button>
           
+           {/* Delivery & Return Info */}
+           <div className={styles.deliveryInfo}>
+            <div className={styles.infoItem}>
+              <svg className={styles.infoIcon} width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+              <div className={styles.infoContent}>
+                <h4>Free Delivery</h4>
+                <p>Free shipping on orders over $50</p>
+              </div>
+            </div>
+            <div className={styles.infoItem}>
+              <svg className={styles.infoIcon} width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+              <div className={styles.infoContent}>
+                <h4>Easy Returns</h4>
+                <p>30-day return policy</p>
+              </div>
+            </div>
+          </div>
           {/* Share Button */}
+
           <button className={styles.shareButton} onClick={() => setShowSharePopup(true)}>
             <svg className={styles.shareIcon} width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
               <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/>
@@ -347,13 +358,43 @@ const ProductDetail = () => {
         </div>
       </section>
       <div className={styles.relatedSection}>
+        <div className={styles.elegantLine}></div>
         <h3>Related Products</h3>
-        <div className={styles.relatedSlider}>
-          {product.related.map((img, idx) => (
-            <div key={idx} className={styles.relatedCard}>
-              <img src={img} alt={`Related ${idx}`} />
-            </div>
-          ))}
+        <div style={{ width: '100%' }}>
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            spaceBetween={16}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 3500, disableOnInteraction: false }}
+            breakpoints={{
+              576: { slidesPerView: 2 },
+              992: { slidesPerView: 3 },
+              1200: { slidesPerView: 4 },
+            }}
+          >
+            {product.related.map((img, idx) => {
+              // Alternate hover image for each related product
+              const mainImage = img;
+              // Use the next image in the array as hoverImage, or loop back to the first
+              const hoverImage = product.related[(idx + 1) % product.related.length];
+              return (
+                <SwiperSlide key={idx}>
+                  <ProductCard
+                    id={`related-${idx}`}
+                    name={`Related Product ${idx + 1}`}
+                    currentPrice={99.99 + idx * 10}
+                    oldPrice={129.99 + idx * 10}
+                    mainImage={mainImage}
+                    hoverImage={hoverImage}
+                    badge={idx === 0 ? 'new' : idx === 1 ? 'sale' : undefined}
+                    salePercentage={idx === 1 ? 20 : undefined}
+                    rating={3 + idx}
+                  />
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
         </div>
       </div>
     </div>

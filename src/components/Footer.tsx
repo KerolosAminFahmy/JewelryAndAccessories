@@ -46,10 +46,10 @@ const Footer: React.FC = () => {
           <Col xs={12} md={6} lg={3} className="mb-4 mb-lg-0 text-center text-lg-start">
             <h6 className="fw-bold mb-3">{t('footer.followUs', 'Follow Us')}</h6>
             <div className="d-flex justify-content-center justify-content-lg-start gap-3">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="footer-social text-dark" tabIndex={0}><FontAwesomeIcon icon={faFacebookF} size="lg" /></a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="footer-social text-dark" tabIndex={0}><FontAwesomeIcon icon={faInstagram} size="lg" /></a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="footer-social text-dark" tabIndex={0}><FontAwesomeIcon icon={faTwitter} size="lg" /></a>
-              <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="footer-social text-dark" tabIndex={0}><FontAwesomeIcon icon={faWhatsapp} size="lg" /></a>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className={`footer-social ${isDark ? 'text-light' : 'text-dark'}`} tabIndex={0}><FontAwesomeIcon icon={faFacebookF} size="lg" /></a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={`footer-social ${isDark ? 'text-light' : 'text-dark'}`} tabIndex={0}><FontAwesomeIcon icon={faInstagram} size="lg" /></a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className={`footer-social ${isDark ? 'text-light' : 'text-dark'}`} tabIndex={0}><FontAwesomeIcon icon={faTwitter} size="lg" /></a>
+              <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className={`footer-social ${isDark ? 'text-light' : 'text-dark'}`} tabIndex={0}><FontAwesomeIcon icon={faWhatsapp} size="lg" /></a>
             </div>
           </Col>
           {/* Contact Info */}

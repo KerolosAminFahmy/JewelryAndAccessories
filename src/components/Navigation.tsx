@@ -48,6 +48,20 @@ const Navigation = () => {
 
   return (
     <nav className={`navigation ${theme} ${direction}`}>
+      <style>
+       {`
+         .nav-link.active {
+            color: var(--color-link-hover, #a88938);
+            font-weight: bold;
+          }
+          .nav-link:hover ,nav-icon-link:hover,button:hover {
+            color: var(--color-link-hover, #a88938);
+            font-weight: bold;
+            text-decoration: none;
+          }
+        
+       `}
+      </style>
       <div className="nav-container">
         <Link to="/" className="nav-logo" onClick={closeMenu}>
           <img 

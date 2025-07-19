@@ -1,0 +1,10 @@
+export { default as DashboardLayout } from './DashboardLayout';
+export { default as DashboardHome } from './DashboardHome';
+export { default as ProductManagement } from './ProductManagement';
+export { default as ProductRequests } from './ProductRequests';
+export { default as Orders } from './Orders';
+export { default as Customers } from './Customers';
+export { default as Analytics } from './Analytics';
+export { default as Settings } from './Settings';
+export { default as AddEditProduct } from './AddEditProduct';
+export { default as CustomerProfile } from './CustomerProfile'; 

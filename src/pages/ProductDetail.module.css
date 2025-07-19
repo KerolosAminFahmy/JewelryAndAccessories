@@ -100,7 +100,8 @@
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
-  background-size: 200% 200%;
+  background-size: 150% 150%;
+  
   border: 2px solid var(--primary);
   border-radius: 1rem;
   opacity: 0.7;
@@ -197,8 +198,8 @@ input[type=number]::-webkit-outer-spin-button {
     appearance: none; 
 }
 .colorActive {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 2px var(--accent);
+  border-color: var(--color-primary, #bfa46d);
+  box-shadow: 0 0 0 2px var(--color-accent, #bfa46d);
 }
 
 .quantity {
@@ -543,8 +544,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .sizeActive {
-  border-color: var(--primary);
-  background: var(--primary);
+  border-color: var(--color-primary, #bfa46d);
+  background: var(--color-primary, #bfa46d);
   color: #fff;
 }
 
@@ -716,6 +717,8 @@ input[type=number]::-webkit-outer-spin-button {
     height: 320px;
   }
   .left {
+    position: relative;
+    overflow: hidden;
     min-width: 0;
   }
   .socialLinks {
@@ -727,3 +730,9 @@ input[type=number]::-webkit-outer-spin-button {
     width: calc(100% - 2rem);
   }
 } 
+button.size {
+  color: var(--text);
+}
+button.size:hover,button.addToCart{
+  color: #ffffff !important;
+}

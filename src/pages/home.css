@@ -2,9 +2,7 @@ section.collection{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: var(--color-card-bg, #f9f7f3);
   border-radius: 16px;
-  box-shadow: var(--color-shadow, 0 4px 24px rgba(191, 164, 109, 0.10));
   transition: background 0.3s, box-shadow 0.3s;
 }
 .title-section {

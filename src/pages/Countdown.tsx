@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Countdown.module.css';
-import main1 from '../assets/25.webp';
+import main1 from '../assets/logo1.png'
 
 function useCountdownTimer(targetDate: Date) {
   const [timeLeft, setTimeLeft] = useState<{ days: number; hours: number; minutes: number; seconds: number } | null>(null);
@@ -33,8 +33,8 @@ function useCountdownTimer(targetDate: Date) {
 const Countdown = () => {
   // Website launch countdown (2 weeks from now) - use useMemo to prevent recreation on every render
   const websiteLaunchDate = React.useMemo(() => {
- 
-    return new Date(1751675105445 + 1000 * 60 * 60 * 24 * 14); // 14 days
+    
+    return new Date(1752947430492+1272325047 + 1000 * 60 * 60 * 24 * 14); // 14 days
   }, []);
   
   const countdownTimer = useCountdownTimer(websiteLaunchDate);
@@ -47,7 +47,7 @@ const Countdown = () => {
           <div className={styles.countdownHeader}>
             <div className={styles.logoSection}>
               <img src={main1} alt="Logo" className={styles.countdownLogo} />
-              <h1 className={styles.brandName}>Elegant Home</h1>
+              <h1 className={styles.brandName}>LoMa Home</h1>
             </div>
             <h2 className={styles.countdownTitle}>Something Beautiful is Coming</h2>
             <p className={styles.countdownSubtitle}>
