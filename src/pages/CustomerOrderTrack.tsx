@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBox, faCheck, faTruck, faClock } from '@fortawesome/free-solid-svg-icons';
 import './dashboard/Customers.css';
@@ -9,9 +9,16 @@ const initialOrders = [
   { id: 'ORD-103', product: 'Silver Bracelet', status: 'shipping', date: '2024-01-13' },
 ];
 
+type Order = {
+  id: string;
+  product: string;
+  status: string;
+  date: string;
+};
+
 const CustomerOrderTrack = () => {
-  const [orders, setOrders] = useState(initialOrders);
-  const [history, setHistory] = useState([]);
+  const [orders, setOrders] = useState<Order[]>(initialOrders);
+  const [history, setHistory] = useState<Order[]>([]);
 
   const handleCompleteOrder = (id: string) => {
     const order = orders.find(o => o.id === id);

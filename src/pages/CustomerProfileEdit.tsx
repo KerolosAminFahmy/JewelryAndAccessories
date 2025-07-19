@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSave, faTimes, faEnvelope, faPhone, faMapMarkerAlt, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faSave, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
 import './dashboard/Customers.css';
 
 const initialProfile = {

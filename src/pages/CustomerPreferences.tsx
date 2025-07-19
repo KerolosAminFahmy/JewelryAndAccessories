@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faCreditCard } from '@fortawesome/free-solid-svg-icons';
 import './dashboard/Customers.css';

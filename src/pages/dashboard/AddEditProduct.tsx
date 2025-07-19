@@ -62,7 +62,6 @@ const AddEditProduct = () => {
     IsFeatured: false,
   });
 
-  const [activeTab, setActiveTab] = useState('basic');
   const [step, setStep] = useState(0);
   const steps = ['Product Info', 'Product Variants', 'Images & Gallery', 'Review & Submit'];
 
@@ -125,7 +124,7 @@ const AddEditProduct = () => {
     }));
   };
 
-  const handleNestedChange = (parent: string, field: string, value: any) => {
+  /*const handleNestedChange = (parent: string, field: string, value: any) => {
     setFormData(prev => ({
       ...prev,
       [parent]: {
@@ -133,7 +132,7 @@ const AddEditProduct = () => {
         [field]: value
       }
     }));
-  };
+  };*/
 
   // Handlers for main and gallery images
   const handleMainImageUpload = (index: 1 | 2, file: File) => {
@@ -372,7 +371,7 @@ const AddEditProduct = () => {
                 ))}
               </select>
             </div>
-            <div className="form-group">
+            {/* <div className="form-group">
               <label>Main Image 1</label>
               <input
                 type="file"
@@ -418,7 +417,7 @@ const AddEditProduct = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
             <div className="form-group checkbox-group">
               <label>
                 <input
