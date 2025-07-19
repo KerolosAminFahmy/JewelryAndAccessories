@@ -10,7 +10,7 @@ import {
   faShoppingCart,
   faBars
 } from '@fortawesome/free-solid-svg-icons';
-import  LogoImage from '../assets/logo1.png'; 
+import  LogoImage from '../assets/logo_without_back.png'; 
 import egyptFlag from '../assets/flag.png';
 import usaFlag from '../assets/united-kingdom.png';
 

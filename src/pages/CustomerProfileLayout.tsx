@@ -7,7 +7,7 @@ import './dashboard/Customers.css';
 const user = {
   name: 'Sarah Johnson',
   email: 'sarah@email.com',
-  avatar: '/src/assets/logo.jpg',
+  avatar: '/src/assets/logo.png',
 };
 
 const links = [

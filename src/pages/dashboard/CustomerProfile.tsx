@@ -10,7 +10,7 @@ const initialProfile = {
   email: 'sarah@email.com',
   phone: '+1 (555) 123-4567',
   address: '123 Main St, New York, NY',
-  avatar: '/src/assets/logo.jpg',
+  avatar: '/src/assets/logo.png',
 };
 
 const initialOrders = [

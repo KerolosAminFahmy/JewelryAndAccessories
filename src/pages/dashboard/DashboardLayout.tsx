@@ -49,7 +49,7 @@ const DashboardLayout = () => {
       <aside className={`dashboard-sidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className="sidebar-header">
           <div className="logo">
-            <img src="/src/assets/logo.jpg" alt="Merna" />
+            <img src="/src/assets/logo.png" alt="Merna" />
             <span>Merna Admin</span>
           </div>
         
@@ -99,7 +99,7 @@ const DashboardLayout = () => {
               <span className="notification-badge">3</span>
             </button>
             <div className="user-menu">
-              <img src="/src/assets/logo.jpg" alt="Admin" />
+              <img src="/src/assets/logo.png" alt="Admin" />
               <span>Admin User</span>
             </div>
           </div>

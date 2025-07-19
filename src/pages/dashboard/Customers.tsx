@@ -31,7 +31,7 @@ const Customers = () => {
       totalSpent: 1249.95,
       lastOrder: '2024-01-15',
       status: 'active',
-      avatar: '/src/assets/logo.jpg',
+      avatar: '/src/assets/logo.png',
       rating: 4.8
     },
     {
@@ -44,7 +44,7 @@ const Customers = () => {
       totalSpent: 589.97,
       lastOrder: '2024-01-14',
       status: 'active',
-      avatar: '/src/assets/logo.jpg',
+      avatar: '/src/assets/logo.png',
       rating: 4.5
     },
     {
@@ -57,7 +57,7 @@ const Customers = () => {
       totalSpent: 2199.92,
       lastOrder: '2024-01-13',
       status: 'active',
-      avatar: '/src/assets/logo.jpg',
+      avatar: '/src/assets/logo.png',
       rating: 4.9
     },
     {
@@ -70,7 +70,7 @@ const Customers = () => {
       totalSpent: 399.98,
       lastOrder: '2024-01-12',
       status: 'inactive',
-      avatar: '/src/assets/logo.jpg',
+      avatar: '/src/assets/logo.png',
       rating: 4.2
     },
     {
@@ -83,7 +83,7 @@ const Customers = () => {
       totalSpent: 599.99,
       lastOrder: '2024-01-11',
       status: 'active',
-      avatar: '/src/assets/logo.jpg',
+      avatar: '/src/assets/logo.png',
       rating: 4.7
     }
   ];

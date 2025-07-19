@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Countdown.module.css';
-import main1 from '../assets/logo1.png'
+import main1 from '../assets/logo_without_back.png'
 
 function useCountdownTimer(targetDate: Date) {
   const [timeLeft, setTimeLeft] = useState<{ days: number; hours: number; minutes: number; seconds: number } | null>(null);
